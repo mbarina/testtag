@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-              sh  "pytest -v --host=root@192.168.10.178 --junit-xml junit.xml /test/test_myinfra.py"
+              sh  "/usr/local/bin/pytest -v --host=root@192.168.10.178 --junit-xml junit.xml /test/test_myinfra.py"
             }
         }
         stage('Test2') {
