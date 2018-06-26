@@ -1,8 +1,5 @@
 pipeline {
-    agent any
-    parameters{
-      nodeParam('nodo1')
-    }
+    agent { node { label 'nodo1' } }
     stages {
         stage('Build') {
             steps {
