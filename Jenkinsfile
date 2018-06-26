@@ -1,10 +1,15 @@
 pipeline {
     agent any
 
+
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                def tag = sh(returnStdout: true, script: "git tag --contains | head -1").trim()
+                if(tag){
+                  echo 'Building..'
+                  echo tag
+                }
             }
         }
         stage('Test') {
