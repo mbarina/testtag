@@ -4,7 +4,7 @@ pipeline {
 
         stage('Test') {
             steps {
-              sh  "py.test --host=root@192.168.10.158 --junit-xml junit.xml /test/test_myinfra.py"
+              sh  "py.test --host=ifdamin@192.168.10.158 --junit-xml junit.xml /test/test_myinfra.py"
             }
         }
     }
