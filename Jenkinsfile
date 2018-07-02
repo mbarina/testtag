@@ -3,10 +3,7 @@ pipeline {
     stages {
         stage('Test') {
             steps{
-                step {
                   sh "echo $BUILD_NUMBER"
-                }
-                step {
                   sh  "py.test -v --host=ifdadmin@192.168.10.158 --junit-xml junit.xml /test/test_myinfra.py"
                 }
             }
