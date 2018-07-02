@@ -8,6 +8,7 @@ pipeline {
             steps{
                 sh "echo $BUILD_NUMBER"
                 sh "echo branch name $BRANCH_NAME"
+                sh "job $JOB_URL"
                 sh  "py.test -v --host=ifdadmin@192.168.10.158 --junit-xml junit.xml /test/test_myinfra.py"
             }
         }
