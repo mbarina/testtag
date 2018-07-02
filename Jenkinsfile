@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test') {
             when{
-              buildingTag()
+              tag "v1.0.*"
             }
             steps{
                 sh "echo $BUILD_NUMBER"
