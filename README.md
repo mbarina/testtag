@@ -27,24 +27,24 @@ def test_ngix(host):
     assert http.is_listening
     assert https.is_listening
 ```
-Define a function to test the modules possibile are:
-host
-Ansible
-File
-Group
-Interface
-Iptables
-MountPoint
-Package
-PipPackage
-Process
-PuppetResource
-Facter
-Salt
-Service
-Socket
-Sudo
-Supervisor
-Sysctl
-SystemInfo
-User
+Define a function to test the modules possibile are:\r
+host\r
+Ansible\r
+File\r
+Group\r
+Interface\r
+Iptables\r
+MountPoint\r
+Package\r
+PipPackage\r
+Process\r
+PuppetResource\r
+Facter\r
+Salt\r
+Service\r
+Socket\r
+Sudo\r
+Supervisor\r
+Sysctl\r
+SystemInfo\r
+User\r
