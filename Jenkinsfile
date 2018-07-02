@@ -2,9 +2,6 @@ pipeline {
     agent { node { label 'node2' } }
     stages {
         stage('Test') {
-            when{
-              tag "v1.0.*"
-            }
             steps{
                 sh "echo $BUILD_NUMBER"
                 sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
