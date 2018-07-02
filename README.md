@@ -27,7 +27,7 @@ def test_ngix(host):
     assert http.is_listening
     assert https.is_listening
 ```
-define a function to test the modulepossibile are:
+Define a function to test the modules possibile are:
 host
 Ansible
 File
