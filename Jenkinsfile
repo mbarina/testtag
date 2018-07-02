@@ -2,11 +2,13 @@ pipeline {
     agent { node { label 'node2' } }
     stages {
         stage('Test') {
-            steps {
-              sh "echo $BUILD_NUMBER"
-            }
-            steps {
-              sh  "py.test -v --host=ifdadmin@192.168.10.158 --junit-xml junit.xml /test/test_myinfra.py"
+            steps{
+                step {
+                  sh "echo $BUILD_NUMBER"
+                }
+                step {
+                  sh  "py.test -v --host=ifdadmin@192.168.10.158 --junit-xml junit.xml /test/test_myinfra.py"
+                }
             }
         }
     }
