@@ -4,7 +4,7 @@ pipeline {
         stage("test") {
             steps {
               script {
-                echo env.getEvironment()
+                echo env.getEnvironment()
               }
               echo "Done"
             }
