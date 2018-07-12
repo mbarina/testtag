@@ -1,10 +1,10 @@
 pipeline {
     agent any
-    script {
-        echo env.getEvironment()
-    }
     stages {
         stage("test") {
+        script {
+            echo env.getEvironment()
+        }
             steps {
                 echo "Done"
             }
