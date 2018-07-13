@@ -15,7 +15,7 @@ node {
               // }
               def List branchs_choices = sh "git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'"
               def result = branchs_choices.getClass()
-              println branchs_choiches[1]
+              println branchs_choiches
               sh "echo ${result}"
                //
                //
