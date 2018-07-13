@@ -9,7 +9,7 @@ node {
             //timeout(time: 60, unit: 'SECONDS'){
 
             script{
-              boolean isCollectionOrArray(object) {
+              def  boolean isCollectionOrArray(object) {
                   [Collection, Object[]].any { it.isAssignableFrom(object.getClass()) }
               }
               def String str = ''
