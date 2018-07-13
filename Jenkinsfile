@@ -4,7 +4,7 @@ node {
     checkout scm
     stage("test") {
           // try {
-            def branchs_choices = sh "git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'"
+
 
             //timeout(time: 60, unit: 'SECONDS'){
 
@@ -13,8 +13,9 @@ node {
               def String str = ''
                  // for(String item: branchs_choices){
                  //   sh "echo ${item}"
-                 // }
-              def result = ${branchs_choices}.getClass()
+                // }
+              def branchs_choices = sh "git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'"
+              def result = {branchs_choices}.getClass()
               sh "echo ${result}"
                //
                //
