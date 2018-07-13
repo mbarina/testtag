@@ -16,7 +16,7 @@ node {
 
 
 
-               for (int i = 0; ${i} < ${branchs_choices}.size(); ${i}++){
+               for (int i = 0; i < ${branchs_choices}.size(); i++){
                    str += '\n'+${i}
                }
                sh "echo ${str}"
