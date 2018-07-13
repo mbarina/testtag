@@ -14,18 +14,18 @@ node {
                                         name: 'Branch',
                                         defaultvalue: 'master',
                                         description: 'Choose the branch to test',
-                                        displayExpression: ${branchs_choices},
-                                        valueExpression: ${branchs_choices}
+                                        displayExpression: '${branchs_choices}',
+                                        valueExpression: '${branchs_choices}'
                                         )]
 
-              
+
 
               def envs = "Testing\nStaging"
               def sel_env =  input  message: 'Choose enviroment!',
                                     ok: 'SET',
                                     parameters:
                                       [choice(name: 'Testing',
-                                              choices: ${envs},
+                                              choices: '${envs}',
                                               description: 'Testing')
                                       ]
 
