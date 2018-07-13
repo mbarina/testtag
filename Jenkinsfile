@@ -20,7 +20,7 @@ node {
 
               echo "Branch selected ${sel_branch}"
 
-              def envs = "Testing\nStaging"]
+              def envs = "Testing\nStaging"
               def sel_env =  input  message: 'Choose enviroment!',
                                     ok: 'SET',
                                     parameters:
