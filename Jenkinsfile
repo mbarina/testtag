@@ -21,7 +21,7 @@ node {
 
                }
 
-               sh "echo ${str}"
+               //sh "echo ${str}"
             }
              //}
               // def sel_branch =  input  message: 'Choose enviroment!',
