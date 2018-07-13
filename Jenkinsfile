@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("test") {
           script {
-            env.BRANCHS = git ls-remote --heads | awk '{print $2}'
+            env.BRANCHS = git ls-remote
           }
             steps {
 
