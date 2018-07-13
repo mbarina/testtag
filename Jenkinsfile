@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+
 node {
     stage("test") {
       steps {
