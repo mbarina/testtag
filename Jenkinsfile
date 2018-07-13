@@ -4,7 +4,7 @@ pipeline {
     stage("test") {
       steps {
         environment {
-          branch = "sh(script:"git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'")"
+          branch = sh(script:"git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'")
         }
       }
     }
