@@ -3,14 +3,14 @@
 node {
     checkout scm
     stage("test") {
-          try {
+          // try {
             def branchs_choices = sh "git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'"
 
             //timeout(time: 60, unit: 'SECONDS'){
             script{
-             for(String item: x){
-               println item
-             }
+               for(String item: x){
+                 println item
+               }
              }
              //}
               // def sel_branch =  input  message: 'Choose enviroment!',
@@ -36,16 +36,16 @@ node {
                                       // ]
 
               //} //timeout
-          } // try
-          catch(err) {
-            def user = err.getCauses()[0].getUser()
-              if('SYSTEM' == user.toString()) { // SYSTEM means timeout.
-                   didTimeout = true
-              }
-              else {
-                  userInput = false
-                  echo "Aborted by: [${user}]"
-              } //else
-          } //catch error
+          // } // try
+          // catch(err) {
+          //   def user = err.getCauses()[0].getUser()
+          //     if('SYSTEM' == user.toString()) { // SYSTEM means timeout.
+          //          didTimeout = true
+          //     }
+          //     else {
+          //         userInput = false
+          //         echo "Aborted by: [${user}]"
+          //     } //else
+          // } //catch error
     } //stage test
 } //node
