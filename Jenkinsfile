@@ -9,7 +9,7 @@ node {
             //timeout(time: 60, unit: 'SECONDS'){
             script{
                for(String item: x){
-                 println item
+                 sh "echo ${item}"
                }
              }
              //}
