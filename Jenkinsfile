@@ -8,7 +8,7 @@ node {
 
             //timeout(time: 60, unit: 'SECONDS'){
             script{
-               for(String item: x){
+               for(String item: branchs_choices){
                  sh "echo ${item}"
                }
              }
