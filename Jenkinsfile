@@ -30,7 +30,7 @@ node {
               //                         [choice(name: 'Testing',
               //                                 choices: '${envs}',
               //                                 description: 'Testing')
-                                      ]
+                                      // ]
 
               } //timeout
           } // try
