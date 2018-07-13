@@ -2,11 +2,10 @@ pipeline {
     agent any
     stages {
         stage("test") {
-          script {
-            env.BRANCHS = git ls-remote
-          }
             steps {
-
+              script {
+                env.BRANCHS = git ls-remote
+              }
               echo "${env.BRANCHS}"
             }
         }
