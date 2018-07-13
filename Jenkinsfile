@@ -9,13 +9,16 @@ node {
             //timeout(time: 60, unit: 'SECONDS'){
 
             script{
-
+              boolean isCollectionOrArray(object) {
+                  [Collection, Object[]].any { it.isAssignableFrom(object.getClass()) }
+              }
               def String str = ''
                  // for(String item: branchs_choices){
                  //   sh "echo ${item}"
                 // }
               def branchs_choices = sh "git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'"
               def result = branchs_choices.getClass()
+              isCollectionOrArray(branchs_choices)
               sh "echo ${result}"
                //
                //
