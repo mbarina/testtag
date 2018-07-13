@@ -18,7 +18,7 @@ node {
                                         valueExpression: ${branchs_choices}
                                         )]
 
-              echo "Branch selected ${sel_branch}"
+              
 
               def envs = "Testing\nStaging"
               def sel_env =  input  message: 'Choose enviroment!',
