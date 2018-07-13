@@ -5,7 +5,7 @@ pipeline {
 
             steps {
               script {
-                env.BRANCHS = sh "git ls-remote --heads | awk '{print $2}'"              }
+                env.BRANCHS = git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print $2}'
               }
               echo "${env.BRANCHS}"
             }
