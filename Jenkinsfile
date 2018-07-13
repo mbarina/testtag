@@ -13,7 +13,7 @@ node {
               // for(String item: branchs_choices){
               //   sh "echo ${item}"
               // }
-              def branchs_choices = new List(sh "git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'")
+              def List branchs_choices = sh "git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'"
               def result = branchs_choices.getClass()
 
               sh "echo ${result}"
