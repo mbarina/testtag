@@ -16,7 +16,7 @@ node {
                                         description: 'Choose the branch to test',
                                         displayExpression: ${branchs_choices},
                                         valueExpression: ${branchs_choices}
-                                      ]
+                                        )]
 
               echo "Branch selected ${sel_branch}"
 
@@ -28,8 +28,6 @@ node {
                                               choices: ${envs},
                                               description: 'Testing')
                                       ]
-
-
 
               } //timeout
           } // try
