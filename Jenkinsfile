@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage("test") {
             steps {
-                script {
-                  env.BRANCHS = git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print $2}'
-                  echo "${env.BRANCHS}"
-                }
+                bash '''#!/bin/bash
+                  BRANCHS = git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print $2}'
+                  echo $BRANCHS
+                '''
             }
         }
     }
