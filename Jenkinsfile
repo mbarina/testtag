@@ -9,18 +9,18 @@ node {
             //timeout(time: 60, unit: 'SECONDS'){
 
             script{
-              branchs_choices
+
               def String str = ''
                  // for(String item: branchs_choices){
                  //   sh "echo ${item}"
                  // }
-
-
-
-               for (int i = 0; i < branchs_choices.size(); i++){
-                  str += '\n' + branchs_choices[i]
-
-               }
+              branchs_choices.getClass()  
+               //
+               //
+               // for (int i = 0; i < branchs_choices.size(); i++){
+               //    str += '\n' + branchs_choices[i]
+               //
+               // }
 
                //sh "echo ${str}"
             }
