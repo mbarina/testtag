@@ -9,17 +9,18 @@ node {
             //timeout(time: 60, unit: 'SECONDS'){
 
             script{
-            def String str = ''
-               for(String item: branchs_choices){
-                 sh "echo ${item}"
+              def String str = ''
+                 for(String item: branchs_choices){
+                   sh "echo ${item}"
+                 }
+
+
+
+               for (int i = 0; ${i} < ${branchs_choices}.size(); ${i}++){
+                   str += '\n'+${i}
                }
-             }
-
-
-             for (int i = 0; i < ${branchs_choices}.size(); i++){
-                 str += '\n'+${i}
-             }
-             sh "echo ${str}"
+               sh "echo ${str}"
+            }
              //}
               // def sel_branch =  input  message: 'Choose enviroment!',
               //                       ok: 'SET',
