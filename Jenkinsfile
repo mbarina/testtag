@@ -4,9 +4,9 @@ pipeline {
         stage("test") {
             steps {
               script {
-                echo env.getEnvironment()
+                  env.BRANCHS = git ls-remote --heads | awk '{print $2}'
               }
-              echo "Done"
+              echo "${env.BRANCHS}"
             }
         }
     }
