@@ -14,7 +14,7 @@ node {
                  // for(String item: branchs_choices){
                  //   sh "echo ${item}"
                  // }
-              def result = branchs_choices.getClass()
+              def result = ${branchs_choices}.getClass()
               sh "echo ${result}"
                //
                //
