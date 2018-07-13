@@ -12,10 +12,11 @@ node {
                                     parameters:
                                       [AutoCompleteStringParameterDefinition(
                                         name: 'Branch',
-                                        defaultvalue: 'master'
-                                        description: 'Choose the branch to test'
-                                        displayExpression: ${branchs_choices}
+                                        defaultvalue: 'master',
+                                        description: 'Choose the branch to test',
+                                        displayExpression: ${branchs_choices},
                                         valueExpression: ${branchs_choices}
+                                      ]
 
               echo "Branch selected ${sel_branch}"
 
@@ -23,7 +24,10 @@ node {
               def sel_env =  input  message: 'Choose enviroment!',
                                     ok: 'SET',
                                     parameters:
-                                      [choice(name: 'Testing', choices: ${envs}, description: 'Testing')]
+                                      [choice(name: 'Testing',
+                                              choices: ${envs},
+                                              description: 'Testing')
+                                      ]
 
 
 
