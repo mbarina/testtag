@@ -9,10 +9,11 @@ node {
             //timeout(time: 60, unit: 'SECONDS'){
 
             script{
+              branchs_choices
               def String str = ''
-                 for(String item: branchs_choices){
-                   sh "echo ${item}"
-                 }
+                 // for(String item: branchs_choices){
+                 //   sh "echo ${item}"
+                 // }
 
 
 
