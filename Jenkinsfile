@@ -4,7 +4,7 @@ node{
   checkout scm
   //def List branchs_choices = sh "git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'"
 
-    stage {
+    stage("test") {
       script{
         def gitURL = "git ls-remote --heads https://github.com/mbarina/testtag.git"
         def command = "git ls-remote --heads $gitURL"
@@ -22,7 +22,5 @@ node{
         }
         println branches
       }//script
-
     }//stage
-
 }
