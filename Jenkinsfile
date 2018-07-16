@@ -16,11 +16,8 @@ node{
            println "Error, ${proc.err.text}"
            System.exit(-1)
         }
+        println proc.getClass()
 
-        def branches = proc.in.text.readLines().collect {
-            it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '')
-        }
-        println branches
       }//script
     }//stage
 }
