@@ -6,7 +6,7 @@ node{
 
     stage("test") {
       script{
-        def gitURL = "git ls-remote --heads https://github.com/mbarina/testtag.git"
+        def gitURL = "https://github.com/mbarina/testtag.git"
         def command = "git ls-remote --heads $gitURL"
 
         def proc = command.execute()
