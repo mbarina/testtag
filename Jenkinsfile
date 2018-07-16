@@ -19,10 +19,10 @@ node{
 
         def branches = proc.in.text.readLines().collect {
             it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '')
-
-            println branches
         }
+        println branches
       }//script
+
     }//stage
-  
+
 }
