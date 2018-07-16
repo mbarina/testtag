@@ -1,65 +1,28 @@
 #!/usr/bin/env groovy
 
-node {
-    checkout scm
-    stage("test") {
-          // try {
+node{
+
+  //def List branchs_choices = sh "git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'"
+
+  script{
+    def gitURL = "git ls-remote --heads https://github.com/mbarina/testtag.git"
+    def command = "git ls-remote --heads $gitURL"
+
+    def proc = command.execute()
+    proc.waitFor()
+
+    if ( proc.exitValue() != 0 ) {
+       println "Error, ${proc.err.text}"
+       System.exit(-1)
+    }
+
+    def branches = proc.in.text.readLines().collect {
+        it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '')
+
+    println branches
+  }
 
 
-            //timeout(time: 60, unit: 'SECONDS'){
+  }
 
-            script{
-              def String str = ''
-              // for(String item: branchs_choices){
-              //   sh "echo ${item}"
-              // }
-              def List branchs_choices = sh "git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'"
-              def result = branchs_choices.getClass()
-              println branchs_choiches
-              sh "echo ${result}"
-               //
-               //
-               // for (int i = 0; i < branchs_choices.size(); i++){
-               //    str += '\n' + branchs_choices[i]
-               //
-               // }
-
-               //sh "echo ${str}"
-            }
-             //}
-              // def sel_branch =  input  message: 'Choose enviroment!',
-              //                       ok: 'SET',
-              //                       parameters:
-              //                         [AutoCompleteStringParameterDefinition(
-              //                           name: 'Branch',
-              //                           defaultvalue: 'master',
-              //                           description: 'Choose the branch to test',
-              //                           displayExpression: '${branchs_choices}',
-              //                           valueExpression: '${branchs_choices}'
-              //                           )]
-              //
-              //
-              //
-              // def envs = "Testing\nStaging"
-              // def sel_env =  input  message: 'Choose enviroment!',
-              //                       ok: 'SET',
-              //                       parameters:
-              //                         [choice(name: 'Testing',
-              //                                 choices: '${envs}',
-              //                                 description: 'Testing')
-                                      // ]
-
-              //} //timeout
-          // } // try
-          // catch(err) {
-          //   def user = err.getCauses()[0].getUser()
-          //     if('SYSTEM' == user.toString()) { // SYSTEM means timeout.
-          //          didTimeout = true
-          //     }
-          //     else {
-          //         userInput = false
-          //         echo "Aborted by: [${user}]"
-          //     } //else
-          // } //catch error
-    } //stage test
-} //node
+}
