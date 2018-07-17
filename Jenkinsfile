@@ -24,6 +24,8 @@ node{
 
 
   stage("build") {
-    sh 'printenv'
+    //sh 'printenv'
+    sh "echo ${env.ENVSEL}"
+    sh "echo ${env.BRANCHSEL}"
   }
 }
