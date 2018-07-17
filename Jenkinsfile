@@ -1,23 +1,25 @@
 #!/usr/bin/env groovy
 
 node{
-  checkout scm
-  //def List branchs_choices = sh "git ls-remote --heads https://github.com/mbarina/testtag.git | awk '{print \$2}'"
+  script{
+      timeout(time: 60, unit: 'SECONDS') {
+          def gitURL = "https://github.com/mbarina/testtag.git"
+          def branch = sh(returnStdout: true, script: """
+                          git ls-remote --head ${gitURL} | awk '{print \$2}'
+                          """)
+          def selBranch = input id: 'branchSel', message: 'Select branch', parameters: [choice(name: 'selbranch', choices: "${branch}", description: 'which branch choose')]
+          def runEnv =  input id: 'envSel', message: 'Select environment', parameters: [choice(name: 'runenv', choices: "Testing\nStaging", description: 'which environment choose')]
+          // println "first ${branch[0]}"
+          println "Branch selected "+ selBranch
+          println "Environment " + runEnv
+      }
+  }
+  environment {
+    ENVSEL = ${runEnv}
+    BRANCHSEL = ${selBranch}
 
-    stage("test") {
-      script{
-        def gitURL = "https://github.com/mbarina/testtag.git"
-        def command = "git ls-remote --heads $gitURL"
-
-        def proc = command.execute()
-        proc.waitFor()
-
-        if ( proc.exitValue() != 0 ) {
-           println "Error, ${proc.err.text}"
-           System.exit(-1)
-        }
-        println proc.getClass()
-
-      }//script
-    }//stage
+  }
+  stage("build") {
+    sh 'printenv'
+  }
 }
